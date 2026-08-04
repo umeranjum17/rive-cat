@@ -19,7 +19,7 @@
   let pet = null, pets = 0;
 
   const r = new rive.Rive({
-    src: 'mycat.riv', canvas: c, autoplay: true, stateMachines: 'SM',
+    src: 'mycat.riv?v=4', canvas: c, autoplay: true, stateMachines: 'SM',
     onLoad: () => {
       r.resizeDrawingSurfaceToCanvas();
       pet = r.stateMachineInputs('SM').find(i => i.name === 'pet');
