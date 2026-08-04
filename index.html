@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rive cat — AI art, programmatically rigged</title>
+<style>
+  html,body{margin:0;height:100%;display:grid;place-items:center;background:#f6f1e7;
+            font:14px/1.6 ui-sans-serif,system-ui,sans-serif;color:#7a6a55}
+  canvas{width:min(80vmin,460px);height:auto;aspect-ratio:1}
+  p{position:fixed;bottom:18px;margin:0;opacity:.7;text-align:center}
+  b{color:#4a3f31}
+</style>
+<canvas id="c" width="840" height="840"></canvas>
+<p><b>8KB .riv</b> — blink · ear twitch · tail sway · breathing, all on different clocks</p>
+<script src="https://unpkg.com/@rive-app/canvas@2"></script>
+<script>
+  const c = document.getElementById('c');
+  const r = new rive.Rive({
+    src: 'mycat.riv',
+    canvas: c,
+    autoplay: true,
+    stateMachines: 'SM',
+    onLoad: () => { r.resizeDrawingSurfaceToCanvas(); document.title += ' ✓'; },
+  });
+  addEventListener('resize', () => r.resizeDrawingSurfaceToCanvas());
+</script>
